@@ -19,10 +19,10 @@ import com.mn.entity.Post;
 
 public class FacebookServiceImpl implements FacebookService
 {
+	Facebook facebook = new Facebook();
+	ObjectMapper mapper = new ObjectMapper();
 
 	public Facebook findById(String id) throws IOException {
-		Facebook facebook = new Facebook();
-		ObjectMapper mapper = new ObjectMapper();
 		File file = new File("src\\main\\resources\\files\\f" +id+ ".json");
 		facebook = mapper.readValue(file, Facebook.class);
 
@@ -30,9 +30,6 @@ public class FacebookServiceImpl implements FacebookService
 	}
 
 	public Map<String, Long> findMostCommonWords() throws IOException {
-		
-		Facebook facebook = new Facebook();
-		ObjectMapper mapper = new ObjectMapper();
 		File directory = new File("src\\main\\resources\\files");
 		File[] files = directory.listFiles();
 		StringBuilder allPosts = new StringBuilder();
@@ -56,8 +53,6 @@ public class FacebookServiceImpl implements FacebookService
 	}
 
 	public Set<String> findPostIdsByKeyword(String word) throws IOException {
-		Facebook facebook = new Facebook();
-		ObjectMapper mapper = new ObjectMapper();
 		List<Post> postsList = new ArrayList<>();
 		File directory = new File("src\\main\\resources\\files");
 		File[] files = directory.listFiles();
@@ -87,7 +82,6 @@ public class FacebookServiceImpl implements FacebookService
 	public List<Facebook> findaAll() throws IOException {
 		
 		List<Facebook> list = new ArrayList<>();
-		ObjectMapper mapper = new ObjectMapper();
 		File directory = new File("src\\main\\resources\\files\\");
 		File[] files = directory.listFiles();
 		
