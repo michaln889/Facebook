@@ -1,5 +1,5 @@
 target/
-.settings/
+settings/
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
